@@ -415,6 +415,7 @@ ul { list-style: none; }
 .hero__name-line {
   overflow: hidden;
   display: block;
+  padding-right: 20px; /* prevents right-side glyph clipping */
 }
 
 .hero__name-line--indent {

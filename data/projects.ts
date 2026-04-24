@@ -1,110 +1,188 @@
-export interface Project {
-  id: string;
-  number: string;
-  name: string;
-  description: string;
-  tech: string[];
-  region: string;
-  metrics: string;
-  github: string;
-  demo: string;
-}
-
-export const projects: Project[] = [
+export const projects = [
   {
-    id: "global-cdn-platform",
-    number: "01",
-    name: "Global CDN Platform",
+    id: "01",
+    name: "MediMind AI Healthcare Assistant",
+    image: "/project1.png",
+    tagline: "AI-powered diagnosis and medical guidance system",
     description:
-      "Architected a multi-region content delivery network serving static assets and API responses with sub-20ms edge latency globally. Built custom cache invalidation logic and real-time origin health monitoring.",
-    tech: ["Next.js", "AWS CloudFront", "Node.js", "Redis"],
-    region: "us-east-1",
-    metrics: "99.99% uptime · 18ms avg · 2M req/day",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "k8s-orchestration-dashboard",
-    number: "02",
-    name: "K8s Orchestration Dashboard",
-    description:
-      "Full-featured Kubernetes operations dashboard providing real-time cluster metrics, pod lifecycle management, and automated scaling decisions powered by custom Prometheus alerting rules.",
-    tech: ["React", "Go", "Kubernetes", "Prometheus", "Grafana"],
-    region: "eu-west-1",
-    metrics: "99.9% uptime · 40ms avg · 50k req/day",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "cicd-automation-framework",
-    number: "03",
-    name: "CI/CD Automation Framework",
-    description:
-      "End-to-end deployment pipeline eliminating manual release steps. Includes blue/green deployments, automated rollbacks triggered by error rate thresholds, and full infrastructure drift detection.",
-    tech: ["GitHub Actions", "Terraform", "AWS", "Docker"],
-    region: "us-west-2",
-    metrics: "80% faster deploys · 0 rollback failures · 200+ pipelines",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "serverless-api-platform",
-    number: "04",
-    name: "Serverless API Platform",
-    description:
-      "Event-driven microservices platform built on AWS Lambda with automatic scaling to zero. Handles burst traffic with no cold start penalty through provisioned concurrency and connection pooling.",
-    tech: ["TypeScript", "AWS Lambda", "DynamoDB", "CDK"],
-    region: "ap-southeast-1",
-    metrics: "99.95% uptime · 12ms p99 · 500k req/day",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "infrastructure-as-code-lib",
-    number: "05",
-    name: "Infrastructure as Code Library",
-    description:
-      "Reusable Terraform module library covering VPC, ECS, RDS, and security group patterns. Used across 15+ projects to enforce compliance policies and reduce infrastructure setup time from days to hours.",
-    tech: ["Terraform", "Python", "AWS Config", "GitHub Actions"],
-    region: "global",
-    metrics: "15 teams · 40+ modules · 3hr avg setup",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "realtime-chat-application",
-    number: "06",
-    name: "Real-Time Chat Application",
-    description:
-      "WebSocket-driven chat platform supporting 10k concurrent connections per node. Features message persistence, end-to-end encryption, presence tracking, and horizontal scaling via Redis pub/sub.",
-    tech: ["Next.js", "Socket.io", "Redis", "PostgreSQL", "Nginx"],
+      "An intelligent healthcare platform that analyzes symptoms and medical images to predict diseases and suggest treatment pathways. Integrated chatbot assistance and stage-based diagnosis with scalable AWS deployment.",
+    type: "ai",
+    color: "#5B6EFF",
     region: "ap-south-1",
-    metrics: "10k concurrent · 8ms latency · 100k MAU",
+    status: "LIVE",
+    metrics: [
+      { label: "Accuracy", value: "92%" },
+      { label: "Stages", value: "3-level" },
+      { label: "Response", value: "< 2s" }
+    ],
+    tech: ["React", "Flask", "TensorFlow", "AWS EC2", "S3"],
+    techColors: {
+      "React": "#5B6EFF",
+      "Flask": "#ffffff",
+      "TensorFlow": "#F5A623",
+      "AWS EC2": "#FF9900",
+      "S3": "#00E5A0"
+    },
     github: "#",
-    demo: "#",
+    live: "https://aimedimind.vercel.app",
+    featured: true
   },
+
   {
-    id: "multi-cloud-cost-optimizer",
-    number: "07",
-    name: "Multi-Cloud Cost Optimizer",
+    id: "02",
+    name: "AI Ethical Compliance Checker",
+    tagline: "Detecting bias and harmful content in real-time",
     description:
-      "Intelligent cloud spend analyzer that identifies waste across AWS and GCP accounts. Provides actionable recommendations that reduced cloud costs by 34% within 90 days of deployment.",
-    tech: ["Python", "FastAPI", "React", "AWS SDK", "GCP SDK"],
-    region: "multi-cloud",
-    metrics: "34% cost reduction · $180k saved · 12 accounts",
+      "AI-based system that analyzes text for ethical compliance, bias, and harmful content using NLP models. Built with serverless architecture for scalable and efficient processing.",
+    type: "ai",
+    color: "#00E5A0",
+    region: "global",
+    status: "LIVE",
+    metrics: [
+      { label: "Detection", value: "Bias + Toxicity" },
+      { label: "Latency", value: "< 1.5s" },
+      { label: "Scalability", value: "Serverless" }
+    ],
+    tech: ["Python", "NLP", "AWS Lambda", "DynamoDB"],
+    techColors: {
+      "Python": "#00E5A0",
+      "NLP": "#A855F7",
+      "AWS Lambda": "#F5A623",
+      "DynamoDB": "#00CFFF"
+    },
     github: "#",
-    demo: "#",
+    live: "#",
+    featured: true
   },
+
   {
-    id: "devops-monitoring-stack",
-    number: "08",
-    name: "DevOps Monitoring Stack",
+    id: "03",
+    name: "Hackathon Leaderboard System",
+    image: "/image.png",
+    tagline: "Real-time ranking engine for hackathons",
     description:
-      "Unified observability platform aggregating metrics, logs, and traces across 50+ services. Includes custom alerting runbooks, SLO tracking dashboards, and automated incident escalation.",
-    tech: ["Prometheus", "Grafana", "Loki", "Docker Compose"],
-    region: "on-prem",
-    metrics: "50+ services · 99.9% alert accuracy · 2min MTTR",
+      "A dynamic leaderboard system that tracks scores and rankings in real-time. Built with event-driven architecture for instant updates and scalable performance during live hackathons.",
+    type: "platform",
+    color: "#F5A623",
+    region: "global",
+    status: "LIVE",
+    metrics: [
+      { label: "Updates", value: "Real-time" },
+      { label: "Users", value: "100+" },
+      { label: "Latency", value: "< 500ms" }
+    ],
+    tech: ["React", "Firebase", "Node.js"],
+    techColors: {
+      "React": "#5B6EFF",
+      "Firebase": "#F5A623",
+      "Node.js": "#00E5A0"
+    },
     github: "#",
-    demo: "#",
+    live: "https://hackintym-leaderboard.vercel.app",
+    featured: true
   },
+
+  {
+    id: "04",
+    name: "AI Skin Disease Detection System",
+    tagline: "Image-based disease classification with AI",
+    description:
+      "Deep learning-based system that analyzes skin images to classify diseases and their stages. Integrated with web interface for real-time predictions and medical insights.",
+    type: "ai",
+    color: "#A855F7",
+    region: "ap-south-1",
+    status: "BUILDING",
+    metrics: [
+      { label: "Accuracy", value: "90%+" },
+      { label: "Classes", value: "3 types" },
+      { label: "Inference", value: "< 2s" }
+    ],
+    tech: ["React", "TensorFlow", "Flask", "AWS EC2"],
+    techColors: {
+      "React": "#5B6EFF",
+      "TensorFlow": "#F5A623",
+      "Flask": "#ffffff",
+      "AWS EC2": "#FF9900"
+    },
+    github: "#",
+    live: "#",
+    featured: false
+  },
+
+  {
+    id: "05",
+    name: "Smart Workforce Management System",
+    tagline: "AI-driven task allocation and scheduling",
+    description:
+      "A workforce platform with role-based access, task management, and gamification. Includes AI-based scheduling and performance tracking for improved productivity.",
+    type: "dashboard",
+    color: "#FF4D6D",
+    region: "ap-south-1",
+    status: "BUILDING",
+    metrics: [
+      { label: "Users", value: "100+" },
+      { label: "Tasks", value: "Dynamic" },
+      { label: "Tracking", value: "Real-time" }
+    ],
+    tech: ["React", "Firebase", "Node.js"],
+    techColors: {
+      "React": "#5B6EFF",
+      "Firebase": "#F5A623",
+      "Node.js": "#00E5A0"
+    },
+    github: "#",
+    live: "#",
+    featured: false
+  },
+
+  {
+    id: "06",
+    name: "AI Task Gamification Engine",
+    tagline: "Performance-based task scoring system",
+    description:
+      "Gamified task engine where users earn or lose points based on task completion time. Includes ranking system and performance analytics.",
+    type: "platform",
+    color: "#00CFFF",
+    region: "global",
+    status: "BUILDING",
+    metrics: [
+      { label: "Scoring", value: "Dynamic" },
+      { label: "Users", value: "Multi-user" },
+      { label: "Tracking", value: "Live" }
+    ],
+    tech: ["React", "Firebase"],
+    techColors: {
+      "React": "#5B6EFF",
+      "Firebase": "#F5A623"
+    },
+    github: "#",
+    live: "#",
+    featured: false
+  },
+
+  {
+    id: "07",
+    name: "AI Classroom Assistant",
+    tagline: "Smart AI assistant for interactive learning",
+    description:
+      "An AI-powered classroom assistant that helps students understand concepts, answer queries, and provide learning support through natural language interaction. Designed to enhance student engagement using NLP and intelligent response systems.",
+    type: "ai",
+    color: "#FF8C00",
+    region: "global",
+    status: "BUILDING",
+    metrics: [
+      { label: "Interaction", value: "Real-time" },
+      { label: "Support", value: "Q&A + Guidance" },
+      { label: "Response", value: "< 2s" }
+    ],
+    tech: ["Python", "NLP", "React"],
+    techColors: {
+      "Python": "#00E5A0",
+      "NLP": "#A855F7",
+      "React": "#5B6EFF"
+    },
+    github: "#",
+    live: "#",
+    featured: false
+  }
 ];

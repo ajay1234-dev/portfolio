@@ -130,14 +130,14 @@ export default function HeroSection() {
               className="hero__name-line"
               style={{ clipPath: "inset(100% 0 0 0)" }}
             >
-              <span>Ajay</span>
+              <span style={{ display: 'inline-block', paddingRight: '0.15em' }}>Ajay</span>
             </div>
             <div
               ref={line2Ref}
               className="hero__name-line hero__name-line--indent"
               style={{ clipPath: "inset(100% 0 0 0)" }}
             >
-              <span>Singh</span>
+              <span style={{ display: 'inline-block', paddingRight: '0.15em' }}>Singh</span>
             </div>
           </h1>
 
