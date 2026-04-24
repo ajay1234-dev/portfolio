@@ -28,9 +28,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Torres — Full Stack & Cloud/DevOps Engineer",
+  title: "Ajay Singh I — Full Stack & Cloud/DevOps Engineer",
   description:
-    "Portfolio of Alex Torres, a Full Stack Developer and Cloud/DevOps Engineer building scalable systems and infrastructure that power products used by millions.",
+    "Portfolio of Ajay Singh I, a Full Stack Developer and Cloud/DevOps Engineer building scalable systems and infrastructure that power products used by millions.",
   keywords: [
     "full stack developer",
     "devops engineer",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "Terraform",
   ],
   openGraph: {
-    title: "Alex Torres — Full Stack & Cloud/DevOps Engineer",
+    title: "Ajay Singh I — Full Stack & Cloud/DevOps Engineer",
     description: "Building scalable systems that power products used by millions.",
     type: "website",
   },
