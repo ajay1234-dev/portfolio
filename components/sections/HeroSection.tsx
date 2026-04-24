@@ -31,7 +31,7 @@ export default function HeroSection() {
 
   const y4 = useTransform(scrollY, (v) => {
     // Base 0.04x speed 
-    let base = v * 0.04;
+    const base = v * 0.04;
     // Fade out translation at bottom half
     let exitY = 0;
     if (v > vh * 0.5) {
