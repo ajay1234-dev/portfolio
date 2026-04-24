@@ -549,7 +549,7 @@ export default function GlobeSkillsCanvas({
       canvas.removeEventListener("click", handleClick);
       cancelAnimationFrame(rafId);
     };
-  }, [dataLoaded, selectedId, stars, onNodeClick]);
+  }, [dataLoaded, selectedId, hoveredId, stars, onNodeClick]);
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: "100%" }}>

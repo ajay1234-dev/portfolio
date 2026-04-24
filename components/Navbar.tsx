@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useScroll } from "framer-motion";
 import { useScrollSection } from "@/hooks/useScrollSection";
-import { motion, useScroll, useTransform } from "framer-motion";
 import MobileMenu from "./MobileMenu";
 
 const NAV_LINKS = [
