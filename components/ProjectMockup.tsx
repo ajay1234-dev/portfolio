@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function ProjectMockup({ type, color, image }: { type: string; color: string; image?: string }) {
@@ -71,10 +72,12 @@ export default function ProjectMockup({ type, color, image }: { type: string; co
       {/* SCREEN CONTENT */}
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
         {image ? (
-          <img 
-            src={image} 
-            alt="Project Screen" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+          <Image
+            src={image}
+            alt="Project Screen"
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         ) : (
           <>
@@ -181,11 +184,11 @@ export default function ProjectMockup({ type, color, image }: { type: string; co
         {type === 'platform' && (
           <div style={{ display: 'flex', height: '100%' }}>
             <div style={{ width: '50%', background: '#0A0A0A', borderRight: '1px solid rgba(242,244,255,0.06)', padding: '12px', fontFamily: 'var(--font-mono), monospace', fontSize: '9px', lineHeight: '1.6' }}>
-              <div style={{ color: '#FF5F57' }}>import <span style={{ color: '#F2F4FF' }}>{'{'} useState {'}'}</span> from <span style={{ color: '#28CA41' }}>'react'</span>;</div>
+              <div style={{ color: '#FF5F57' }}>import <span style={{ color: '#F2F4FF' }}>{'{'} useState {'}'}</span> from <span style={{ color: '#28CA41' }}>&apos;react&apos;</span>;</div>
               <div style={{ color: '#FF5F57', marginTop: '8px' }}>export default function <span style={{ color: '#FFBD2E' }}>App</span>() {'{'}</div>
               <div style={{ color: 'rgba(242,244,255,0.6)', paddingLeft: '12px' }}>const [state, setState] = useState(0);</div>
               <div style={{ color: '#FF5F57', paddingLeft: '12px', marginTop: '4px' }}>return (</div>
-              <div style={{ color: color, paddingLeft: '24px' }}>&lt;div className="app"&gt;</div>
+              <div style={{ color: color, paddingLeft: '24px' }}>&lt;div className=&quot;app&quot;&gt;</div>
               <div style={{ color: 'rgba(242,244,255,0.6)', paddingLeft: '36px' }}>Hello Platform</div>
               <div style={{ color: color, paddingLeft: '24px' }}>&lt;/div&gt;</div>
               <div style={{ color: '#FF5F57', paddingLeft: '12px' }}>);</div>

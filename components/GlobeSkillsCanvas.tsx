@@ -27,7 +27,7 @@ export default function GlobeSkillsCanvas({
   const isDragging = useRef(false);
   const startX = useRef(0);
   const startRotation = useRef(0);
-  const visibleNodesRef = useRef<any[]>([]);
+  const visibleNodesRef = useRef<{ node: typeof datacenterNodes[number]; p: { x: number; y: number; z: number } }[]>([]);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   // 200 Ambient stars
@@ -272,7 +272,7 @@ export default function GlobeSkillsCanvas({
       // LAND FILL
       ctx.beginPath();
       for (const feature of land.features) {
-        const geom = feature.geometry as any;
+        const geom = feature.geometry as GeoJSON.Polygon | GeoJSON.MultiPolygon;
         const polys = geom.type === 'Polygon' ? [geom.coordinates] : geom.type === 'MultiPolygon' ? geom.coordinates : [];
         for (const polygon of polys) {
           for (const ring of polygon) {
@@ -285,7 +285,7 @@ export default function GlobeSkillsCanvas({
 
       // BORDERS
       for (const feature of countries.features) {
-        const geom = feature.geometry as any;
+        const geom = feature.geometry as GeoJSON.Polygon | GeoJSON.MultiPolygon;
         const polys = geom.type === 'Polygon' ? [geom.coordinates] : geom.type === 'MultiPolygon' ? geom.coordinates : [];
         for (const polygon of polys) {
           for (const ring of polygon) {
@@ -488,18 +488,18 @@ export default function GlobeSkillsCanvas({
       rafId = requestAnimationFrame(draw);
     };
 
-    const handleMouseDown = (e: any) => {
+    const handleMouseDown = (e: MouseEvent | TouchEvent) => {
       isDragging.current = true;
-      startX.current = e.touches ? e.touches[0].clientX : e.clientX;
+      startX.current = 'touches' in e ? e.touches[0].clientX : e.clientX;
       startRotation.current = rotationRef.current;
     };
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = (e: MouseEvent | TouchEvent) => {
       const rect = canvas.getBoundingClientRect();
-      const mx = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
-      const my = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+      const mx = 'touches' in e ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+      const my = 'touches' in e ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
 
       if (isDragging.current) {
-        rotationRef.current = startRotation.current + ((e.touches ? e.touches[0].clientX : e.clientX) - startX.current) * 0.4;
+        rotationRef.current = startRotation.current + (('touches' in e ? e.touches[0].clientX : e.clientX) - startX.current) * 0.4;
       }
       
       let found = false;

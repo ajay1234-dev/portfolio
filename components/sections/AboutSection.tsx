@@ -10,7 +10,7 @@ const fadeUp = {
     transition: {
       duration: 0.7,
       delay: i * 0.12,
-      ease: "easeOut" as any
+      ease: "easeOut" as "easeOut"
     }
   })
 }
