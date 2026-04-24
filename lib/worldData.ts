@@ -12,9 +12,7 @@ export async function getWorldData() {
   )
   const topo = await res.json() as Topology
   
-  // @ts-ignore
   cachedLand = feature(topo, topo.objects.land) as GeoJSON.FeatureCollection
-  // @ts-ignore
   cachedCountries = feature(topo, topo.objects.countries) as GeoJSON.FeatureCollection
   
   return { land: cachedLand, countries: cachedCountries }

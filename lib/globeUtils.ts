@@ -32,10 +32,8 @@ export async function loadWorldData() {
   )
   const topology = await response.json()
   const { feature } = await import('topojson-client')
-  // @ts-ignore
-  const countries: any = feature(topology, topology.objects.countries)
-  // @ts-ignore
-  const land: any = feature(topology, topology.objects.land)
+  const countries: unknown = feature(topology, topology.objects.countries)
+  const land: unknown = feature(topology, topology.objects.land)
   return { countries, land }
 }
 

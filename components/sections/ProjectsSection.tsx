@@ -211,7 +211,7 @@ export default function ProjectsSection() {
             03 — SELECTED WORK
           </p>
           <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: 'clamp(40px,5vw,64px)', color: '#F2F4FF', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-            What I've Built
+            What I&apos;ve Built
           </h2>
         </div>
         <div className="hidden md:block" style={{ fontFamily: 'var(--font-dm-sans)', fontWeight: 300, fontSize: '14px', color: 'rgba(242,244,255,0.4)', paddingBottom: '8px' }}>
